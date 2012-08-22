@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<navigation>
+    <index module="default" controller="index" action="index">
+        <label>Principal</label>
+        <title>Controladora Principal</title>
+        <icon>icon-home</icon>
+    </index>
+    <consulta module="default" controller="index" action="consulta">
+        <label>Consulta</label>
+        <title>Consulta de Paciente</title>
+        <icon>icon-th-large</icon>
+        <pages>
+            <consulta module="default" controller="index" action="consulta">
+                <label>Consulta</label>
+                <title>Consulta de Paciente</title>
+                <icon>icon-th-large</icon>
+            </consulta>
+        </pages>
+    </consulta>
+    <configuracoes module="default" controller="user" action="index">
+        <label>Configurações</label>
+        <title>Configurações Administrativas</title>
+        <icon>icon-cog</icon>
+        <pages>
+            <index module="default" controller="user" action="index">
+                <label>Usuários</label>
+                <title>Listar Usuários</title>
+            </index>
+            <create module="default" controller="user" action="create">
+                <label>Permissões</label>
+                <title>Gerenciar Permissões</title>
+                <separator>true</separator>
+                <header>Header de Menu</header>
+            </create>
+            <update module="default" controller="user" action="update">
+                <label>Perfis</label>
+                <title>Perfis de Acesso</title>
+            </update>
+        </pages>
+    </configuracoes>
+</navigation>

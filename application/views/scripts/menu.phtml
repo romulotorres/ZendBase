@@ -1,0 +1,40 @@
+<ul class='mainnav'>
+    <?php foreach ($this->container as $page): ?>
+        <?php printLi($page); ?>
+    <?php endforeach; ?>
+</ul>
+
+
+<?php
+
+function printLi($page)
+{
+    ?>
+    <?php if ($page->separator): ?>
+        <li class="divider"></li>        
+    <?php endif; ?>
+    <?php if ($page->header): ?>
+        <li class="nav-header"><?php echo $page->header ?></li>
+        
+    <?php endif; ?>
+
+
+    <li class="<?php echo $page->isActive() ? 'active ' : ''; ?><?php if ($page->pages): ?>dropdown subnavbar-open-right <?php endif; ?>">
+        <a href="<?php echo $page->pages ? '#' : $page->href; ?>" <?php echo $page->pages ? 'class="dropdown-toggle"
+          data-toggle="dropdown"' : '' ?>>
+            <i class="<?php echo $page->icon ?>"></i>
+            <span><?php echo $page->label ?></span>
+            <?php if ($page->pages): ?>
+                <b class="caret"></b>
+            <?php endif; ?>
+        </a>
+        <?php if ($page->pages): ?>
+            <ul class="dropdown-menu">
+                <?php foreach ($page->pages as $subpage): ?>
+                    <?php printLi($subpage); ?>
+                <?php endforeach; ?>
+            </ul>
+        <?php endif; ?>
+    </li>
+
+<?php } ?>
